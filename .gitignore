@@ -1,0 +1,17 @@
+# Artefactos de consumidores: no son de esta biblioteca
+skills-lock.json
+dist/
+
+# Inbox de aprendizaje: es local a cada maquina, se concilia antes de commitear
+.learning/
+
+# Instalaciones locales de agentes
+.agents/
+.claude/
+.opencode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.swp
+*~

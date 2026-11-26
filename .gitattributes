@@ -1,0 +1,18 @@
+# El repo se gestiona desde Windows y desde VMs Linux. Sin esto, git
+# convierte los .sh a CRLF y bash deja de poder ejecutarlos:
+#   "bad interpreter: /bin/sh^M: No such file or directory"
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Los .md y .yml se mantienen en LF: los YAML de CI fallan con CRLF en algunos runners
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+
+# Los binarios no se tocan
+*.png binary
+*.jpg binary
+*.gif binary
+*.zip binary
