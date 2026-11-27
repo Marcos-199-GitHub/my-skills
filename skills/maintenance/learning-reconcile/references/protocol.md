@@ -145,6 +145,12 @@ git commit -m "feat(skills): reconcile learning into <destinos>"
 git push gitea main   # o `origin` en las máquinas que clonaron desde Gitea
 ```
 
+Antes de aplicar y otra vez antes de pushear, repetí `git status --short` y
+`git rev-parse --short HEAD`. Si HEAD cambió desde el paso 0 —otra sesión
+commiteó en el mismo clone— pará, releé el diff de lo que ibas a tocar y
+reclasificá las entradas. El chequeo del arranque no cubre commits que
+aparecen a mitad de la conciliación.
+
 El push **pide confirmación**: el agente principal tiene `git push *` en
 `ask`. Es el último control y está ahí a propósito: una conciliación
 toca la biblioteca que usan las otras máquinas.
