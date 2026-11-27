@@ -1,0 +1,53 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # macOS entra porque el lint usaba mapfile (bash 4+) y en bash 3.2
+        # se saltaba los archivos en silencio: el pipeline pasaba en verde sin
+        # haber revisado nada.
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      # En Gitea, actions/checkout se descarga de github.com por defecto.
+      # Si el runner no tiene salida a internet, usar `uses: builtin:checkout`.
+      - uses: actions/checkout@v4
+
+      # El lint de markdown corre dentro de validate.sh: no hace falta
+      # otra pasada.
+      - name: Validar skills e indice del README
+        run: bash tools/validate.sh --check
+
+      # Los scripts no tenian ninguna prueba: el smoke test cubre las
+      # decisiones que cambiaron el comportamiento (formato del manifiesto,
+      # comparacion de versiones, contenido del wrapper, que detecta el
+      # lint). Corre sin red y sin docker.
+      - name: Smoke test de los scripts
+        run: bash tools/smoke-test.sh
+
+      # El shellcheck corre en un contenedor: la imagen ya trae el binario
+      # como entrypoint, asi que el comando NO lleva un "shellcheck" delante
+      # (doble: el binario recibia su propio nombre como archivo a revisar).
+      - name: Shellcheck de los scripts
+        if: runner.os == 'Linux'
+        run: |
+          bash tools/docker-run.sh koalaman/shellcheck:latest \
+            -e SC1091,SC2016 -f gcc \
+            tools/validate.sh tools/lint-md.sh tools/docker-run.sh \
+            tools/smoke-test.sh \
+            skills/environment/dev-tooling/scripts/*.sh
+
+      # El catalogo anuncia que gitleaks aplica "nunca commitees secretos" de
+      # forma mecanica, pero nadie lo ejecutaba: sin este paso era solo texto.
+      - name: Buscar secretos
+        if: runner.os == 'Linux'
+        run: |
+          bash tools/docker-run.sh zricethezav/gitleaks:latest \
+            detect --no-git --source .
