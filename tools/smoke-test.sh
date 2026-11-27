@@ -286,7 +286,7 @@ fi
 
 for derived in assets/global-agents-md.md agents/main-agent.md; do
   fresh_repo
-  grep -v 'source: work-protocol#single-source-of-truth' "$TMP/repo/$derived" > "$TMP/sin-marcador"
+  grep -v '<!-- source:' "$TMP/repo/$derived" > "$TMP/sin-marcador"
   mv "$TMP/sin-marcador" "$TMP/repo/$derived"
   out="$(VALIDATE_ROOT="$TMP/repo" bash "$ROOT/tools/validate.sh" 2>&1)"
   if grep -q 'falta el marcador de fuente derivada' <<< "$out"; then

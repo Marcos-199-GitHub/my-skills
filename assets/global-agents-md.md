@@ -41,6 +41,11 @@ está en las skills; acá está el núcleo que no se negocia.
 - **Salvedad por proyecto**: algunos proyectos son internos y no se
   dockerizan. El `AGENTS.md` de cada proyecto **manda** sobre esta regla. Si
   el usuario te dice cómo se corre un proyecto, registralo ahí.
+<!-- source: environment-setup#container-aware -->
+- **`localhost` en un contenedor es el loopback del contenedor**, no la PC: para
+  alcanzar servicios del host usá el hostname que declare la config o
+  `host.docker.internal`, probalo antes de conectar y reportá la sustitución.
+  `[container-aware]`
 
 ## Tareas grandes
 

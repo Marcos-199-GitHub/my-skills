@@ -90,6 +90,7 @@ Si estás en un contenedor, ajustá la estrategia:
 | Privilegios | Suele ser root. Los comandos de instalación no necesitan `sudo` |
 | Persistencia | `$HOME` puede ser efímero. Lo instalado ahí se pierde al recrear el contenedor |
 | Montajes | El proyecto suele ser un bind mount: los cambios de archivos sí persisten, los de sistema no |
+| Red | `localhost` es el loopback del contenedor, no la PC. Para servicios del host usá el hostname que declare la config o `host.docker.internal`, y verificálo con una prueba mínima antes de conectar |
 
 Si `$HOME` es efímero y hay herramientas que deben persistir, decilo en el
 reporte final en vez de asumir que quedaron.
@@ -256,8 +257,12 @@ entender quién lo escribió, no es portable.
 
 ### [container-aware] Detectá el entorno antes de asumir
 
-Si estás en un contenedor, decilo en el reporte final: qué se instaló donde y
-qué no persiste. No asumas que el estado del sistema sobrevive.
+Si estás en un contenedor, `localhost` es el loopback del contenedor, no la PC.
+Antes de conectar a un servicio del host, usá el hostname que declare la config
+(por ejemplo `host.docker.internal`) y verificálo con una prueba mínima. Si
+falla, probá alternativas antes de pedirle nada al usuario y reportá la
+sustitución. Además, decilo en el reporte final: qué se instaló donde y qué no
+persiste. No asumas que el estado del sistema sobrevive.
 
 ## Detalle
 

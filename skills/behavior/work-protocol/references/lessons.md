@@ -19,6 +19,7 @@ el registro histórico.
 | 2026-11-27 | opencode-my-skills | El descubrimiento de capacidades de un agente no se infiere de los archivos del repo: OpenCode inyecta el catálogo de skills en cada paso, y la descripción es el anuncio | `work-protocol` → `[check-the-blind-spots]` + payload always-on |
 | 2026-11-27 | opencode-my-skills | Una pregunta sobre si se aprendió algo no autoriza a aplicar el cambio: proponer el diff y esperar aprobación antes de tocar la biblioteca | `learning-reconcile` → `[propose-then-apply]` + `agents/main-agent.md` + payload always-on |
 | 2026-11-27 | opencode-my-skills | La detección del error y de la solución reutilizable es automática; el inbox es escalonamiento y la skill es el destino de lo global | `work-protocol` → `[learn-from-error]` + `agents/main-agent.md` + payload always-on |
+| 2026-11-27 | opencode-my-skills | En un contenedor `localhost` es el loopback propio: los servicios del host se alcanzan por el host que declare la config o `host.docker.internal`, verificados con una prueba mínima antes de conectar | `environment-setup` → `[container-aware]` + payload + `agents/main-agent.md` |
 
 ## Cómo se agrega una entrada
 

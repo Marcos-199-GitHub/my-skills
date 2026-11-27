@@ -70,3 +70,10 @@ permissions:
    biblioteca, presentá el diff exacto y esperá aprobación explícita antes
    de aplicar, validar, limpiar el inbox y commitear. Una pregunta
    («¿aprendiste?») no es aprobación.
+
+<!-- source: environment-setup#container-aware -->
+
+9. En un contenedor, `localhost` es el loopback del contenedor, no la PC: para
+   alcanzar servicios del host usá el hostname que declare la config o
+   `host.docker.internal`, probalo antes de conectar y reportá la sustitución.
+   `[container-aware]`
