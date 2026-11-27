@@ -150,3 +150,4 @@ skill en todas las máquinas.
 
 - Protocolo paso a paso: `references/protocol.md`
 - Formato de la propuesta: `assets/import-proposal-template.md`
+- Prompt neutral y adaptadores por agente: `references/agent-neutral-prompt.md`
