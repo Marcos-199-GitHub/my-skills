@@ -222,6 +222,10 @@ Reglas:
 - Si las dos chocan y no hay criterio claro, **preguntá**. No resuelvas por
   default.
 - No justifiques una decisión citando una sola lente.
+- **Cuestioná también la ubicación de las reglas**, no solo su contenido. Que
+  una regla ya viviera en un archivo no la vuelve correcta ahí: enumerá las
+  alternativas (global, de proyecto, de agente) y descartá cada una con
+  criterio.
 
 ### [check-the-blind-spots] Antes de cerrar, enumerá lo que no consideraste
 
