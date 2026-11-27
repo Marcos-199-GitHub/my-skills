@@ -158,6 +158,12 @@ El agente principal mantiene el gate general `git push *` en `ask`. Los
 force-push, el borrado de ramas, la sintaxis de refspec forzada (`+rama`) y
 todo push a GitHub siguen en `ask`: la última regla que matchea gana.
 
+**Desde otro proyecto no se pushea a este espejo.** Allí no se carga esta
+config, así que el push cae en el gate general y pide confirmación. Eso es
+correcto: lo aprendido en otro repo va al inbox local y la conciliación se
+hace acá, en la biblioteca. Un `git -C <my-skills> push gitea` lanzado desde
+otro proyecto tampoco carga la config: falla seguro, pidiendo confirmación.
+
 Un solo commit para la conciliación entera. Si el diff incluye cambios que no
 son de conciliación, van en otro commit (regla `[no-refactor-on-the-side]`).
 

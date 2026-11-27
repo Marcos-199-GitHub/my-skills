@@ -215,6 +215,10 @@ de otro alfabeto, palabras en inglés y markdown mal formado.
   seguridad de todas las máquinas: un agujero suyo deja pasar el error a
   otro lado sin que nadie lo vea acá. Cuando agregues un check, escribí el
   caso que hoy no se cubre y probá que el validador falla con él.
+- **La config de distribución va en `opencode.json` del repo**, no en
+  `agents/main-agent.md`: ese agente es el default de todos los proyectos.
+  El archivo está en la raíz a propósito —es lo que OpenCode descubre— y
+  lleva las excepciones bajo `agents.main-agent.permissions`.
 - **Los remotes**: `origin` es GitHub (repo privado principal, lo que usa
   GitHub Desktop), `gitea` es Gitea (distribución). El push normal a `gitea`
   es automático **en este repo** (`opencode.json`); en otros proyectos rige
