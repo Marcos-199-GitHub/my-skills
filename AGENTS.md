@@ -217,8 +217,9 @@ de otro alfabeto, palabras en inglés y markdown mal formado.
   caso que hoy no se cubre y probá que el validador falla con él.
 - **Los remotes**: `origin` es GitHub (repo privado principal, lo que usa
   GitHub Desktop), `gitea` es Gitea (distribución). El push normal a `gitea`
-  es automático: es un espejo local. Los force-push y el push a
-  `origin`/GitHub sí piden confirmación.
+  es automático **en este repo** (`opencode.json`); en otros proyectos rige
+  el gate general del agente. Los force-push y el push a `origin`/GitHub sí
+  piden confirmación.
 
 ## Flujo
 
