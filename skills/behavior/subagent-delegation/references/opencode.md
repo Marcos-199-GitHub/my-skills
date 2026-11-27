@@ -5,6 +5,10 @@ específico de OpenCode.
 
 ## Built-in
 
+Esta biblioteca **no incluye subagentes propios**: define cuándo delegar y
+usa los built-in. Definir uno es opcional y se hace en la config del agente,
+no acá.
+
 | Subagente | Para qué | Alcance |
 |---|---|---|
 | `general` | Investigación y trabajo de varios pasos | Acceso amplio a herramientas. **No** puede lanzar más subagentes |

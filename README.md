@@ -562,8 +562,10 @@ prompt tiene que ser autocontenido y pedir el **resultado** con su formato,
 no la transcripción. Un subagente al que se le pide "explorá y contame" te
 devuelve un muro de texto, que es justo lo que querías evitar.
 
-La mecánica de OpenCode (`mode: subagent`, permisos, `subagent_depth`,
-agentes built-in) está en `skills/behavior/subagent-delegation/references/opencode.md`.
+La biblioteca no trae subagentes propios: delega en los built-in (`explore`,
+`general`). Definir uno nuevo es decisión de la config del agente, no de esta
+skill. La mecánica (`mode: subagent`, permisos, `subagent_depth`) está en
+`skills/behavior/subagent-delegation/references/opencode.md`.
 
 ---
 
