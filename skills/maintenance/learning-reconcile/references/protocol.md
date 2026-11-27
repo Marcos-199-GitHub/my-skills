@@ -151,9 +151,10 @@ commiteó en el mismo clone— pará, releé el diff de lo que ibas a tocar y
 reclasificá las entradas. El chequeo del arranque no cubre commits que
 aparecen a mitad de la conciliación.
 
-El push **pide confirmación**: el agente principal tiene `git push *` en
-`ask`. Es el último control y está ahí a propósito: una conciliación
-toca la biblioteca que usan las otras máquinas.
+El push a Gitea **no pide confirmación**: es un espejo local y el agente
+principal tiene `git push gitea *` (y las formas por URL local) en `allow`,
+después de la regla general en `ask`. El push a GitHub sí sigue en `ask`:
+es público y la última palabra es del usuario.
 
 Un solo commit para la conciliación entera. Si el diff incluye cambios que no
 son de conciliación, van en otro commit (regla `[no-refactor-on-the-side]`).

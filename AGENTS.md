@@ -216,8 +216,9 @@ de otro alfabeto, palabras en inglés y markdown mal formado.
   otro lado sin que nadie lo vea acá. Cuando agregues un check, escribí el
   caso que hoy no se cubre y probá que el validador falla con él.
 - **Los remotes**: `origin` es GitHub (repo privado principal, lo que usa
-  GitHub Desktop), `gitea` es Gitea (distribución). Nunca pushees a `gitea`
-  sin querer.
+  GitHub Desktop), `gitea` es Gitea (distribución). El push a `gitea` es
+  automático, sin confirmación: es un espejo local. El push a `origin`/GitHub
+  sí pide confirmación.
 
 ## Flujo
 
