@@ -12,11 +12,17 @@ permissions:
     resource: git push gitea *
     effect: allow
   - action: shell
-    resource: git push http://localhost:13000/gitea/*
+    resource: git push http://*13000/gitea/*
     effect: allow
   - action: shell
-    resource: git push http://host.docker.internal:13000/gitea/*
-    effect: allow
+    resource: git push *--force*
+    effect: ask
+  - action: shell
+    resource: git push *--delete*
+    effect: ask
+  - action: shell
+    resource: git push gitea +*
+    effect: ask
   - action: shell
     resource: git reset --hard *
     effect: deny
@@ -35,9 +41,10 @@ permissions:
   instrucciones del proyecto y a las skills: no las reemplaza.
 
   Las skills se cargan bajo demanda, así que este prompt las activa de forma
-  explícita. Las reglas que DEBEN cumplirse (push a Gitea sin confirmación,
-  push a GitHub con confirmación, no reset destructivo) están en `permissions`,
-  que se ejecutan en código y no dependen de que el modelo decida.
+  explícita. Las reglas que DEBEN cumplirse (push normal a Gitea sin
+  confirmación, force-push y borrado con confirmación, no reset destructivo)
+  están en `permissions`, que se ejecutan en código y no dependen de que el
+  modelo decida.
 -->
 
 <!-- source: work-protocol#single-source-of-truth -->
