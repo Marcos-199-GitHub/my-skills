@@ -320,6 +320,14 @@ pequeños, corregelos en vez de reportarlos como «fuera de alcance». Los que
 sean decisiones no triviales se resuelven con las dos lentes. Devolver lo que
 se podía decidir también devuelve trabajo al usuario.
 
+**Un diff concreto se aplica, no se propone.** Si del análisis salió el texto
+exacto del cambio, las revisiones del repo lo verifican y no es irreversible
+ni público (publicar, borrar, force-push), aplicálo en el mismo turno y
+reportálo con su motivo. Pedir aprobación para un cambio que ya redactaste y
+podés verificar devuelve trabajo al usuario. La excepción es
+`[propose-then-apply]`: una conciliación que cambia la biblioteca compartida
+sigue esperando aprobación.
+
 Decidir **no** es lo mismo que decidir **solo**. La decisión se reporta con
 su motivo, para que se pueda revertir o discutir.
 
